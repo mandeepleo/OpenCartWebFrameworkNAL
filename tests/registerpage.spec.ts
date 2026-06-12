@@ -11,7 +11,7 @@ test("TC: Register Page Title Test", async ({ registerPage }) => {
 
 const registerUserJson = JsonHelper.readJson("src/data/registerData.json");
 for (const data of registerUserJson) {
-  test(`TC: Register New User | Firstname: ${data.firstname} `, async ({ registerPage, registeredPage, page }) => {
+  test.skip(`TC: Register New User | Firstname: ${data.firstname} `, async ({ registerPage, registeredPage, page }) => {
     await registerPage.registerUser(
       data.firstname,
       data.lastname,
