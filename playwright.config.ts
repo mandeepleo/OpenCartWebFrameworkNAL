@@ -22,11 +22,12 @@ export default defineConfig({
   workers: process.env.CI ? 2 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   // reporter: "html",
-  reporter: [
-    ["html", { outputFolder: "reports/html-report" }],
-    ["allure-playwright", { outputFolder: "allure-results" }],
-    ["github"],
-  ],
+  reporter: process.env.CI
+    ? [["html"], ["github"]]
+    : [
+        ["html", { outputFolder: "reports/html-report" }],
+        ["allure-playwright", { outputFolder: "allure-results" }],
+      ],
   timeout: 30_000,
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
