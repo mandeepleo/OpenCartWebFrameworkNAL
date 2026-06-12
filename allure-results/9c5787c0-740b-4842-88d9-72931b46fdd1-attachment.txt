@@ -1,0 +1,12 @@
+User creds:  test@email.com / test
+Search key is: htc
+Actual Product Info:  Map(8) {
+  'Product Header' => 'HTC Touch HD',
+  'Product Images Count' => 3,
+  'Brand' => 'HTC',
+  'Product Code' => 'Product 1',
+  'Reward Points' => '400',
+  'Availability' => 'In Stock',
+  'Product Price' => '$122.00',
+  'Ex Tax' => '$100.00'
+}

@@ -1,0 +1,3 @@
+User creds:  test@email.com / test
+product:  MacBook
+Search key is: macbook
