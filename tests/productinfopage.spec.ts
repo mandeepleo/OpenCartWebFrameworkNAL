@@ -32,7 +32,6 @@ for (const row of productInfoData) {
     await accountPage.doSearch(row.searchkey);
     await searchResultsPage.selectProduct(row.name);
     const actualProductInfoMap = await productInfoPage.getProductInfo();
-    console.log("Actual Product Info: ", actualProductInfoMap);
     expect.soft(actualProductInfoMap.get("Product Header")).toBe(row.header);
     expect.soft(actualProductInfoMap.get("Product Images Count")).toBe(Number(row.imagescount));
     expect.soft(actualProductInfoMap.get("Brand")).toBe(row.brand);
@@ -42,6 +41,7 @@ for (const row of productInfoData) {
     expect.soft(actualProductInfoMap.get("Product Price")).toBe(row.price);
     expect.soft(actualProductInfoMap.get("Ex Tax")).toBe(row.extax);
   });
+  // }
 }
 
 test("TC: Add product to cart and verify added successfully", async ({
