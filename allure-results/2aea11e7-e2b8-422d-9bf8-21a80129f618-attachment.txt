@@ -1,3 +1,0 @@
-User creds:  test@email.com / test
-product:  iMac
-Search key is: imac

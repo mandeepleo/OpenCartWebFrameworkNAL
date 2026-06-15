@@ -1,3 +1,0 @@
-User creds:  test@email.com / test
-Account Page Headers: 
- [ 'My Account', 'My Orders', 'My Affiliate Account', 'Newsletter' ]
