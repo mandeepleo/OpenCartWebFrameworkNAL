@@ -59,7 +59,7 @@ Use process.env.KEY to access the environment variables in your tests or configu
 Execute tests using the command:
 ENV=qa npx playwright test or ENV=stage npx playwright test
 
-# Import test data from CSV file/s
+## Import test data from CSV file/s
 
 npm install csv-parse
 create csvhelper.ts util file with following code:
@@ -78,3 +78,18 @@ create csvhelper.ts util file with following code:
     }
 
 Directly use the static method - readCsv(csv-path) to read CSV data records in the spec.ts file
+
+## Configure Github Actions with the project
+
+Execute command: `npm init playwright@latest`
+When prompt asks "Add a GitHub Actions workflow?" choose Yes. This will add .github folder in the project with playwright.yml file.
+Add following flags in the playwright.yml file:
+    - name: Install dependencies
+        run: npm ci
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+      - name: Run Playwright tests
+        run: npx playwright test
+
+## Configure Jenkins
+
