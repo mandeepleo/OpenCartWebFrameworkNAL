@@ -92,4 +92,27 @@ Add following flags in the playwright.yml file:
         run: npx playwright test
 
 ## Configure Jenkins
+Install Jenkins
+
+Configure Jenkins job with below test steps:
+
+Step #1
+cd /Users/mandeep/Developer/Projects/OpenCartWebFrameworkNAL
+npm ci
+
+Step #2
+cd /Users/mandeep/Developer/Projects/OpenCartWebFrameworkNAL
+npx playwright install --with-deps
+
+Step #3
+cd /Users/mandeep/Developer/Projects/OpenCartWebFrameworkNAL
+npx playwright test tests/example.spec.ts
+
+In the Post-build actions, add "Publish HTML reports" and provide Playwright html-report folder absolute path
+
+### For Playwright Reports display in browser:
+Install HTML Publisher plugin
+Run below script in Jenkins > Manage Jenkins > Script Console > Click Run button twice:
+
+`System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "default-src 'self' 'unsafe-inline' 'unsafe-eval'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;")`
 
