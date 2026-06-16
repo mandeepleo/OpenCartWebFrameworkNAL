@@ -1,4 +1,4 @@
-import { test, expect } from "../src/fixtures/pagefixtures";
+import { test, expect } from "../../src/fixtures/pagefixtures";
 
 test.beforeEach(async ({ loginPage }) => {
   await loginPage.goToLoginPage(); // navigate to the login page

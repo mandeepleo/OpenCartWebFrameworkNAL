@@ -1,5 +1,5 @@
-import { test, expect } from "../src/fixtures/pagefixtures";
-import { CsvHelper } from "../src/utils/CsvHelper";
+import { test, expect } from "../../src/fixtures/pagefixtures";
+import { CsvHelper } from "../../src/utils/CsvHelper";
 
 test.beforeEach(async ({ loginPage }) => {
   await loginPage.goToLoginPage();

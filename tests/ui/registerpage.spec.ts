@@ -1,5 +1,5 @@
-import { test, expect } from "../src/fixtures/pagefixtures";
-import { JsonHelper } from "../src/utils/JsonHelper";
+import { test, expect } from "../../src/fixtures/pagefixtures";
+import { JsonHelper } from "../../src/utils/JsonHelper";
 
 test.beforeEach(async ({ registerPage }) => {
   await registerPage.goToRegisterPage();

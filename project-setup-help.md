@@ -84,6 +84,7 @@ Directly use the static method - readCsv(csv-path) to read CSV data records in t
 Execute command: `npm init playwright@latest`
 When prompt asks "Add a GitHub Actions workflow?" choose Yes. This will add .github folder in the project with playwright.yml file.
 Add following flags in the playwright.yml file:
+
     - name: Install dependencies
         run: npm ci
       - name: Install Playwright Browsers
@@ -92,25 +93,35 @@ Add following flags in the playwright.yml file:
         run: npx playwright test
 
 ## Configure Jenkins
-Install Jenkins
+Install Jenkins: `brew install jenkins-lts`
+
+Run Jenkins service from terminal: `brew services start jenkins-lts`
+
+Stop Jenkins service: `brew services stop jenkins-lts`
 
 Configure Jenkins job with below test steps:
 
 Step #1
-cd /Users/mandeep/Developer/Projects/OpenCartWebFrameworkNAL
-npm ci
+
+`cd /Users/mandeep/Developer/Projects/OpenCartWebFrameworkNAL`
+
+`npm ci`
 
 Step #2
-cd /Users/mandeep/Developer/Projects/OpenCartWebFrameworkNAL
-npx playwright install --with-deps
+
+`cd /Users/mandeep/Developer/Projects/OpenCartWebFrameworkNAL`
+
+`npx playwright install --with-deps`
 
 Step #3
-cd /Users/mandeep/Developer/Projects/OpenCartWebFrameworkNAL
-npx playwright test tests/example.spec.ts
+
+`cd /Users/mandeep/Developer/Projects/OpenCartWebFrameworkNAL`
+
+`npx playwright test tests/example.spec.ts`
 
 In the Post-build actions, add "Publish HTML reports" and provide Playwright html-report folder absolute path
 
-### For Playwright Reports display in browser:
+### For Playwright Reports display in browser (via Jenkine):
 Install HTML Publisher plugin
 Run below script in Jenkins > Manage Jenkins > Script Console > Click Run button twice:
 

@@ -36,14 +36,14 @@ test("create user test @api @post", async ({ request }) => {
 });
 
 let updateUserData = {
-  name: "New Test User",
+  name: "Updated Name",
   email: `user${Date.now()}@newmail.com`,
   gender: "male",
   status: "active",
 };
 
 test("update user test @update", async ({ request }) => {
-  const response = await request.put("https://gorest.co.in/public/v2/users/8505728", {
+  const response = await request.put("https://gorest.co.in/public/v2/users/8508500", {
     headers: { Authorization: AUTH_TOKEN },
     data: updateUserData,
   });
@@ -55,7 +55,7 @@ test("update user test @update", async ({ request }) => {
 });
 
 test("delete user test @delete", async ({ request }) => {
-  const response = await request.delete("https://gorest.co.in/public/v2/users/8505728", {
+  const response = await request.delete("https://gorest.co.in/public/v2/users/8508500", {
     headers: { Authorization: AUTH_TOKEN },
     data: updateUserData,
   });

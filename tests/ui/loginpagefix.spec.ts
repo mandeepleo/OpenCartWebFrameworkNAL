@@ -1,6 +1,6 @@
-import { test, expect } from "../src/fixtures/pagefixtures";
-import { CsvHelper } from "../src/utils/CsvHelper";
-import { JsonHelper } from "../src/utils/JsonHelper";
+import { test, expect } from "../../src/fixtures/pagefixtures";
+import { CsvHelper } from "../../src/utils/CsvHelper";
+import { JsonHelper } from "../../src/utils/JsonHelper";
 
 test.beforeEach(async ({ loginPage }) => {
   await loginPage.goToLoginPage();
