@@ -44,12 +44,11 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-   
-    // {
-    //   name: "ui-chromium",
-    //   testDir: "tests/ui",
-    //   use: { ...devices["Desktop Chrome"] },
-    // },
+    {
+      name: "ui-chromium",
+      testDir: "tests/ui",
+      use: { ...devices["Desktop Chrome"] },
+    },
 
     // {
     //   name: "ui-firefox",

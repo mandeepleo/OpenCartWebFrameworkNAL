@@ -28,14 +28,16 @@ reporter: [
 ]
 
 **Add the following in the "scripts" section of the package.json:**
-"allure:clean": "rm -rf allure-results allure-report",
-"allure:generate": "npx allure generate allure-results --clean -o allure-report",
-"allure:open": "npx allure open allure-report",
-"allure:report": "npm run allure:generate && npm run allure:open"
 
-## Generate allure report
+`"allure:clean": "rm -rf allure-results allure-report",`
 
-**use following commands to generate allure report:**
+`"allure:generate": "npx allure generate allure-results --clean -o allure-report",`
+
+`"allure:open": "npx allure open allure-report",`
+
+`"allure:report": "npm run allure:generate && npm run allure:open"`
+
+**Use following command to generate and show allure report:**
 `npm run allure:report`
 
 ## Install and configure dotenv

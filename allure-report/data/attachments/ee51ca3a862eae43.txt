@@ -1,0 +1,14 @@
+{
+  id: 8509355,
+  name: 'New Test User',
+  email: 'user_19a6c012-b4aa-40d6-b9cf-d2c2b05a5386@testmail.com',
+  gender: 'male',
+  status: 'active'
+}
+{
+  id: 8509355,
+  name: 'New Test User',
+  email: 'user_cfd55f00-b6bd-42fc-9f7f-a2b6fac6a6b6@testmail.com',
+  gender: 'male',
+  status: 'inactive'
+}
