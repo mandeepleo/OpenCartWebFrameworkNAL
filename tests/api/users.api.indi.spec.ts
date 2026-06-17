@@ -22,7 +22,7 @@ async function createNewUser(apiHelper: any) {
 }
 
 // Below are independent POST, UPDATE and DELETE tests which invoke the above (common) createNewUser() unction
-// These tests are not dependent on each other and can be run in parallel
+// These tests are not dependent on each other and can be executed in parallel (fullyParellel: true)
 
 test("POST - Create User", async ({ apiHelper }) => {
   // create a user
@@ -48,6 +48,21 @@ test("PUT - Update User", async ({ apiHelper }) => {
   expect(response.status).toBe(200);
   expect(response.statusText).toBe("OK");
   expect(response.body.email).toBe(updateUserData.email);
+});
+
+test("PATCH - Update User", async ({ apiHelper }) => {
+  let patchUserData = {
+    email: `${DataGenerator.generateEmail()}`,
+    status: "inactive",
+  };
+  // create a user
+  let newUserResponse = await createNewUser(apiHelper);
+
+  // PATCH the user
+  let response = await apiHelper.patch(`/public/v2/users/${newUserResponse.id}`, patchUserData, AUTH_HEADER);
+  expect(response.status).toBe(200);
+  expect(response.statusText).toBe("OK");
+  expect(response.body.email).toBe(patchUserData.email);
 });
 
 test("DELETE - Delete user", async ({ apiHelper }) => {

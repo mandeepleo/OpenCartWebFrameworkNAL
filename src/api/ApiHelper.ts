@@ -64,4 +64,19 @@ export class ApiHelper {
       statusText: response.statusText(),
     };
   }
+
+  // PATCH
+  public async patch(endPoint: string, payload: object, headers?: Record<string, string>) {
+    let response = await this.request.patch(`${this.baseUrl}${endPoint}`, {
+      headers: headers,
+      data: payload,
+    });
+    console.log(await response.json()); // prints response on console
+
+    return {
+      status: response.status(),
+      body: await response.json(),
+      statusText: response.statusText(),
+    };
+  }
 }
