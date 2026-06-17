@@ -43,7 +43,7 @@ let updateUserData = {
 };
 
 test("update user test @update", async ({ request }) => {
-  const response = await request.put("https://gorest.co.in/public/v2/users/8508500", {
+  const response = await request.put("https://gorest.co.in/public/v2/users/8508990", {
     headers: { Authorization: AUTH_TOKEN },
     data: updateUserData,
   });
@@ -55,9 +55,9 @@ test("update user test @update", async ({ request }) => {
 });
 
 test("delete user test @delete", async ({ request }) => {
-  const response = await request.delete("https://gorest.co.in/public/v2/users/8508500", {
+  const response = await request.delete("https://gorest.co.in/public/v2/users/8509024", {
     headers: { Authorization: AUTH_TOKEN },
-    data: updateUserData,
+   
   });
 
   //   const jsonResponse = await response.json();
