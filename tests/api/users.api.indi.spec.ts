@@ -24,7 +24,7 @@ async function createNewUser(apiHelper: any) {
 // Below are independent POST, UPDATE and DELETE tests which invoke the above (common) createNewUser() unction
 // These tests are not dependent on each other and can be executed in parallel (fullyParellel: true)
 
-test("POST - Create User", async ({ apiHelper }) => {
+test("POST - Create User @API", async ({ apiHelper }) => {
   // create a user
   let newUserResponse = await createNewUser(apiHelper);
   // GET the user
@@ -33,7 +33,7 @@ test("POST - Create User", async ({ apiHelper }) => {
   expect(response.body.name).toBe(newUserResponse.name);
 });
 
-test("PUT - Update User", async ({ apiHelper }) => {
+test("PUT - Update User @API", async ({ apiHelper }) => {
   let updateUserData = {
     name: "Updated Name",
     email: `${DataGenerator.generateEmail()}`,
@@ -50,7 +50,7 @@ test("PUT - Update User", async ({ apiHelper }) => {
   expect(response.body.email).toBe(updateUserData.email);
 });
 
-test("PATCH - Update User", async ({ apiHelper }) => {
+test("PATCH - Update User @API", async ({ apiHelper }) => {
   let patchUserData = {
     email: `${DataGenerator.generateEmail()}`,
     status: "inactive",
@@ -65,7 +65,7 @@ test("PATCH - Update User", async ({ apiHelper }) => {
   expect(response.body.email).toBe(patchUserData.email);
 });
 
-test("DELETE - Delete user", async ({ apiHelper }) => {
+test("DELETE - Delete user @API", async ({ apiHelper }) => {
   // create a user
   let newUserResponse = await createNewUser(apiHelper);
   // DELETE the user
