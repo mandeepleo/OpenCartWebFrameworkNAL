@@ -19,6 +19,10 @@ let userId: number;
 // using test.describe.serial to run grouped tests in serial mode
 // this will override fullyParaller: true configured in playwright.conifg.ts
 
+// test.describe.serial or parallel methods are deprecated!!!
+// it is better to make the tests isolated so they can be run independently.
+// Playwright official documentation: https://playwright.dev/docs/api/class-test#deprecated
+
 test.describe.serial("gorest.co.in api CRUD tests", async () => {
   test("GET ALL - Get all users", async ({ apiHelper }) => {
     let response = await apiHelper.get("public/v2/users/", AUTH_HEADER);
@@ -35,11 +39,11 @@ test.describe.serial("gorest.co.in api CRUD tests", async () => {
     expect(response.body.email).toBe(newUserData.email);
   });
 
-  test("GET - Retrieve created user", async({apiHelper})=>{
+  test("GET - Retrieve created user", async ({ apiHelper }) => {
     let response = await apiHelper.get(`public/v2/users/${userId}`, AUTH_HEADER);
     expect(response.status).toBe(200);
     expect(response.statusText).toBe("OK");
-  })
+  });
 
   test("PUT - Update User", async ({ apiHelper }) => {
     let response = await apiHelper.put(`public/v2/users/${userId}`, updatedUserData, AUTH_HEADER);
