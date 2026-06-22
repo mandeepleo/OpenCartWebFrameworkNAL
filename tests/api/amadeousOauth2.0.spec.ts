@@ -26,7 +26,7 @@ test.beforeEach("amadeous Oauth2.0 test", async ({ request }) => {
   console.log("Fetched token is: ", accessToken);
 });
 
-test("TC: GET location data", async ({ request }) => {
+test("TC: GET location data @oauth", async ({ request }) => {
   let baseURL = "https://test.api.amadeus.com";
   let endPointURL = "/v1/reference-data/locations";
   let queryParam = {
