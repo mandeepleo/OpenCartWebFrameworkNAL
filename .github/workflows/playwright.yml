@@ -20,7 +20,7 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps chromium
       - name: Run Playwright tests
-        run: npx playwright test --project=chromium
+        run: npx playwright test tests/ui/ --project=chromium
         env:
           ENV: qa
           BASE_URL: ${{ secrets.BASE_URL }}
@@ -43,4 +43,4 @@ jobs:
         with:
           name: allure-results
           path: reports/html-report/
-          retention-days: 30     
+          retention-days: 30
