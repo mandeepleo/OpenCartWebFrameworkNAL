@@ -19,7 +19,7 @@ export default defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 2 : undefined,
+  workers: process.env.CI ? "50%" : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   // reporter: "html",
   reporter: process.env.CI
@@ -35,7 +35,7 @@ export default defineConfig({
     baseURL: process.env.BASE_URL,
     screenshot: "only-on-failure",
     video: "retain-on-failure",
-    headless: true,
+    headless: process.env.CI ? true : false,
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
     // actionTimeout:10_000, // maximum time for each action (like click, fill, etc.) to complete before timing out
@@ -45,8 +45,7 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: "ui-chromium",
-      testDir: "tests/ui",
+      name: "chromium",
       use: { ...devices["Desktop Chrome"] },
     },
 
@@ -61,11 +60,11 @@ export default defineConfig({
     //   testDir: "tests/ui",
     //   use: { ...devices["Desktop Safari"] },
     // },
-    {
-      name: "api",
-      testDir: "tests/api",
-      use: { ...devices["Desktop Chrome"] },
-    },
+    // {
+    //   name: "api",
+    //   testDir: "tests/api",
+    //   use: { ...devices["Desktop Chrome"] },
+    // },
 
     /* Test against mobile viewports. */
     // {
