@@ -9,3 +9,12 @@ node_modules/
 /allure-results/
 reports/
 reports/html-report/index.html
+
+# env files
+config/*.env.*
+!config/.env.example
+
+# reports
+*-report/
+*allure*
+reports/
