@@ -1,0 +1,29 @@
+{
+  "name": "opencartwebframeworknal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "allure:clean": "rm -rf allure-results allure-report",
+    "allure:generate": "npx allure generate allure-results --clean -o allure-report",
+    "allure:open": "npx allure open allure-report",
+    "allure:report": "npm run allure:generate && npm run allure:open"
+  },
+  "keywords": [],
+  "author": "Mandeep",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@playwright/test": "^1.61.0",
+    "@types/node": "^25.9.2",
+    "allure-commandline": "^2.42.0",
+    "allure-playwright": "^3.9.0",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "ajv": "^8.20.0",
+    "csv-parse": "^6.2.1",
+    "dotenv": "^17.4.2",
+    "uuid": "^14.0.0"
+  }
+}
