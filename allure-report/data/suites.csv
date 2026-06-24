@@ -1,5 +1,0 @@
-"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","957","DELETE - Delete user","api","2026-06-17","passed","2026-06-17","","api/users.api.indi.spec.ts","",""
-"","822","PATCH - Update User","api","2026-06-17","passed","2026-06-17","","api/users.api.indi.spec.ts","",""
-"","833","PUT - Update User","api","2026-06-17","passed","2026-06-17","","api/users.api.indi.spec.ts","",""
-"","734","POST - Create User","api","2026-06-17","passed","2026-06-17","","api/users.api.indi.spec.ts","",""
