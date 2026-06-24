@@ -24,10 +24,10 @@ jobs:
         env:
           ENV: qa
           BASE_URL: ${{ secrets.BASE_URL }}
-          USERNAME: ${{ secrets.BASE_URL }}
-          PASSWORD: ${{ secrets.BASE_URL }}
-          API_BASE_URL: ${{ secrets.BASE_URL }}
-          API_TOKEN: ${{ secrets.BASE_URL }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          API_BASE_URL: ${{ secrets.API_BASE_URL }}
+          API_TOKEN: ${{ secrets.API_TOKEN }}
 
       - name: Upload HTML Report
         if: always()
