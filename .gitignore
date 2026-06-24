@@ -7,7 +7,7 @@ node_modules/
 /playwright/.cache/
 /playwright/.auth/
 /allure-results/
-reports/html-report/index.html
+# reports/html-report/index.html
 
 # env files
 config/*.env*
