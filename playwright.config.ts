@@ -4,11 +4,11 @@ import dotenv from "dotenv";
 // Load environment variables from .env file
 // Check if ENV variable is set, if not load default .env file,
 // else load the specific .env file based on ENV variable
-if (!process.env.ENV) {
-  dotenv.config({ path: `config/.env` });
-} else {
-  dotenv.config({ path: `config/.env.${process.env.ENV}` });
-}
+// if (!process.env.ENV) {
+//   dotenv.config({ path: `config/.env` });
+// } else {
+//   dotenv.config({ path: `config/.env.${process.env.ENV}` });
+// }
 
 export default defineConfig({
   testDir: "./tests",
