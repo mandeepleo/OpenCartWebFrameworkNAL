@@ -10,6 +10,14 @@ import dotenv from "dotenv";
 //   dotenv.config({ path: `config/.env.${process.env.ENV}` });
 // }
 
+if (!process.env.GITHUB_ACTIONS) {
+  if (!process.env.ENV) {
+    dotenv.config({ path: "config/.env" });
+  } else {
+    dotenv.config({ path: `config/.env.${process.env.ENV}` });
+  }
+}
+
 export default defineConfig({
   testDir: "./tests",
   /* Run tests in files in parallel */
