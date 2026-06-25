@@ -3,6 +3,12 @@ import dotenv from "dotenv";
 
 // Load .env files only for local execution
 
+/**
+ * When your Playwright tests are running:
+ * On GitHub Actions: GitHub automatically sets the variable GITHUB_ACTIONS to the string "true".
+ * On your local machine: The variable is not set, so its value is undefined. 
+*/
+
 if (!process.env.GITHUB_ACTIONS) {
   if (!process.env.ENV) {
     dotenv.config({ path: "config/.env" });

@@ -2,9 +2,9 @@ import { expect, request, test } from "@playwright/test";
 
 const OAUTH_CONFIG = {
   tokenURL: "https://test.api.amadeus.com/v1/security/oauth2/token",
-  clientId: "pUYP1Wr0MJmKmt3uSwI7fwcmYjcN7tub",
-  grantType: "client_credentials",
-  clientSecret: "VoRGUvlUWMsaFYsZ",
+  clientId: process.env.OAUTH_CLIENT_ID!,
+  grantType: process.env.OAUTH_GRANT_TYPE!,
+  clientSecret: process.env.OAUTH_CLIENT_SECRET!,
 };
 
 let accessToken: string;
@@ -43,8 +43,6 @@ test("TC: GET location data @oauth", async ({ request }) => {
   expect(locationResponse.status()).toBe(200);
   const locationResponseJson = await locationResponse.json();
   console.log("Response:\n", locationResponseJson);
-  console.log('---------------');
+  console.log("---------------");
   console.log(locationResponseJson.data[0].type);
-  
-  
 });
