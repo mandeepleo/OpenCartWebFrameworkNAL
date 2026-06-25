@@ -6,16 +6,20 @@ import dotenv from "dotenv";
 /**
  * When your Playwright tests are running:
  * On GitHub Actions: GitHub automatically sets the variable GITHUB_ACTIONS to the string "true".
- * On your local machine: The variable is not set, so its value is undefined. 
-*/
+ * On your local machine: The variable is not set, so its value is undefined.
+ */
 
-if (!process.env.GITHUB_ACTIONS) {
-  if (!process.env.ENV) {
-    dotenv.config({ path: "config/.env.qa" });
-  } else {
-    dotenv.config({ path: `config/.env.${process.env.ENV}` });
-  }
-}
+// if (!process.env.GITHUB_ACTIONS) {
+//   if (!process.env.ENV) {
+//     dotenv.config({ path: "config/.env.qa" });
+//   } else {
+//     dotenv.config({ path: `config/.env.${process.env.ENV}` });
+//   }
+// }
+
+const ENV = process.env.ENV || "qa";
+console.log("Running tests on Environment: ", ENV);
+dotenv.config({ path: `config/.env.${ENV}` });
 
 export default defineConfig({
   testDir: "./tests",
