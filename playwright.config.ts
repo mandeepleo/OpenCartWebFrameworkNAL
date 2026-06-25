@@ -38,15 +38,15 @@ export default defineConfig({
         ["html", { outputFolder: "reports/html-report" }],
         [
           "allure-playwright",
-          {
-            outputFolder: "allure-results",
-            suiteTitle: true,
-          },
+          // {
+          //   outputFolder: "allure-results",
+          //   suiteTitle: true,
+          // },
         ],
       ]
     : [
         ["html", { outputFolder: "reports/html-report" }],
-        ["allure-playwright", { outputFolder: "allure-results" }],
+        ["allure-playwright"],
       ],
   timeout: 30_000,
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
