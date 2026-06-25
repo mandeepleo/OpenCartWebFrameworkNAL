@@ -83,3 +83,11 @@ jobs:
           name: allure-report-${{ github.run_id }}
           path: allure-report/
           retention-days: 5
+
+      - name: Upload Allure Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results-${{ github.run_id }}
+          path: allure-results/
+          retention-days: 5
