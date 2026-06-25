@@ -34,7 +34,16 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   // reporter: "html",
   reporter: process.env.CI
-    ? [["html", { outputFolder: "reports/html-report" }], ["github"]]
+    ? [
+        ["html", { outputFolder: "reports/html-report" }],
+        [
+          "allure-playwright",
+          {
+            outputFolder: "allure-results",
+            suiteTitle: true,
+          },
+        ],
+      ]
     : [
         ["html", { outputFolder: "reports/html-report" }],
         ["allure-playwright", { outputFolder: "allure-results" }],
