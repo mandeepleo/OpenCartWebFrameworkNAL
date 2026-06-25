@@ -20,15 +20,35 @@ jobs:
   test:
     timeout-minutes: 10
     runs-on: ubuntu-latest #windows-latest #macos-latest
+    environment: ${{ github.event.inputs.environment || 'qa' }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: lts/*
+          cache: "npm"
+
+      - name: Cache Playwright Browsers
+        id: playwright-cache
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ hashFiles('package-lock.json') }}
+
       - name: Install dependencies
         run: npm ci
+
       - name: Install Playwright Browsers
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright OS dependencies only (if cached)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps
+
       - name: Run Playwright tests
         run: npx playwright test --project=chromium
         env:
