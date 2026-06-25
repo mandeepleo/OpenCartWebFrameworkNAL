@@ -11,7 +11,7 @@ import dotenv from "dotenv";
 
 if (!process.env.GITHUB_ACTIONS) {
   if (!process.env.ENV) {
-    dotenv.config({ path: "config/.env" });
+    dotenv.config({ path: "config/.env.qa" });
   } else {
     dotenv.config({ path: `config/.env.${process.env.ENV}` });
   }

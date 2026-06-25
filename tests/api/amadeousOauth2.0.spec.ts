@@ -18,6 +18,9 @@ test.beforeEach("amadeous Oauth2.0 test", async ({ request }) => {
       client_secret: OAUTH_CONFIG.clientSecret,
     },
   });
+  console.log("Printing OAUTH env var values:\n",
+    OAUTH_CONFIG.tokenURL, OAUTH_CONFIG.grantType, OAUTH_CONFIG.clientId,OAUTH_CONFIG.clientSecret);
+  
 
   expect(response.status()).toBe(200);
   const jsonResponse = await response.json();
