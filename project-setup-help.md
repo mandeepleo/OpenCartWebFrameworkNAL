@@ -95,6 +95,7 @@ Add following flags in the playwright.yml file:
         run: npx playwright test
 
 ## Configure Jenkins
+
 Install Jenkins: `brew install jenkins-lts`
 
 Run Jenkins service from terminal: `brew services start jenkins-lts`
@@ -124,8 +125,26 @@ Step #3
 In the Post-build actions, add "Publish HTML reports" and provide Playwright html-report folder absolute path
 
 ### For Playwright Reports display in browser (via Jenkine):
+
 Install HTML Publisher plugin
 Run below script in Jenkins > Manage Jenkins > Script Console > Click Run button twice:
 
 `System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "default-src 'self' 'unsafe-inline' 'unsafe-eval'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;")`
+
+## Run Playwright test in a docker container
+
+1. install docker desktop
+2. cd to the (playwright) project directory and run following command
+    docker run --rm \
+    -v $(pwd):/app \
+    -w /app \
+    -e CI=true \
+    mcr.microsoft.com/playwright:v1.61.0-noble \
+    npx playwright test --project=chromium
+
+## Create your custom docker image
+ Check the Dockerfile in the project root directory. It is already configured to use the latest Playwright image and install all dependencies. You can build your custom docker image using the following command:
+`docker build -t your-image-name .`
+
+
 
